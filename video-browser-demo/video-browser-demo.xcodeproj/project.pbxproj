@@ -16,6 +16,9 @@
 		2F31192A2B1DC0A9009A1F19 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3119292B1DC0A9009A1F19 /* AuthController.swift */; };
 		2F31192E2B1DC0F1009A1F19 /* VimeoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31192D2B1DC0F1009A1F19 /* VimeoClient.swift */; };
 		2F3119302B1DC178009A1F19 /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31192F2B1DC178009A1F19 /* AuthToken.swift */; };
+		2F3119322B1DC7D9009A1F19 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3119312B1DC7D9009A1F19 /* HTTPClient.swift */; };
+		2F3119352B1DCB8C009A1F19 /* CategoriesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3119342B1DCB8C009A1F19 /* CategoriesApi.swift */; };
+		2F31193D2B1DFF5E009A1F19 /* VideosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31193C2B1DFF5E009A1F19 /* VideosResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		2F3119292B1DC0A9009A1F19 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		2F31192D2B1DC0F1009A1F19 /* VimeoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoClient.swift; sourceTree = "<group>"; };
 		2F31192F2B1DC178009A1F19 /* AuthToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
+		2F3119312B1DC7D9009A1F19 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		2F3119342B1DCB8C009A1F19 /* CategoriesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesApi.swift; sourceTree = "<group>"; };
+		2F31193C2B1DFF5E009A1F19 /* VideosResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +81,9 @@
 		2F3119172B1DB965009A1F19 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				2F3119332B1DCB83009A1F19 /* Categories Api */,
 				2F3119282B1DC0A9009A1F19 /* Auth */,
+				2F3119312B1DC7D9009A1F19 /* HTTPClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -98,6 +106,24 @@
 				2F31192D2B1DC0F1009A1F19 /* VimeoClient.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		2F3119332B1DCB83009A1F19 /* Categories Api */ = {
+			isa = PBXGroup;
+			children = (
+				2F3119342B1DCB8C009A1F19 /* CategoriesApi.swift */,
+				2F3119372B1DF8AF009A1F19 /* Models */,
+			);
+			path = "Categories Api";
+			sourceTree = "<group>";
+		};
+		2F3119372B1DF8AF009A1F19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2F31193C2B1DFF5E009A1F19 /* VideosResponse.swift */,
+			);
+			name = Models;
+			path = ../../Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,11 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F31193D2B1DFF5E009A1F19 /* VideosResponse.swift in Sources */,
 				2F3119052B1DB8BB009A1F19 /* ViewController.swift in Sources */,
 				2F31192A2B1DC0A9009A1F19 /* AuthController.swift in Sources */,
 				2F3119012B1DB8BB009A1F19 /* AppDelegate.swift in Sources */,
+				2F3119322B1DC7D9009A1F19 /* HTTPClient.swift in Sources */,
 				2F31192E2B1DC0F1009A1F19 /* VimeoClient.swift in Sources */,
 				2F3119032B1DB8BB009A1F19 /* SceneDelegate.swift in Sources */,
+				2F3119352B1DCB8C009A1F19 /* CategoriesApi.swift in Sources */,
 				2F3119302B1DC178009A1F19 /* AuthToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

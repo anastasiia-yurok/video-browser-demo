@@ -10,7 +10,6 @@ import Foundation
 enum AuthError: Error {
   case invalidGrantType
   case unauthorized
-  case badResponseData
   case unknownNetworkError(String?)
   case internalError(String)
 }
@@ -22,58 +21,49 @@ protocol AuthController {
 
 class AuthControllerImpl: AuthController {
   private(set) var token: AuthToken?
+
+  private let httpClient: HTTPClient
+  
+  init(httpClient: HTTPClient) {
+    self.httpClient = httpClient
+  }
   
   func authenticate() async throws {
-    guard let url = URL(string: Self.authUrl) else {
-      throw AuthError.internalError("Invalid auth url")
-    }
-    
-    var urlRequest = URLRequest(url: url)
-    urlRequest.httpMethod = "POST"
-    urlRequest.allHTTPHeaderFields = [
-      "Authorization": VimeoClient.default.basicAuthHeader,
-      "Content-Type": "application/json",
-      "Accept": "application/vnd.vimeo.*+json;version=3.4"
-    ]
-    
-    let body = [
-      "grant_type": "client_credentials",
-      "scope": "public"
-    ]
+    let data: Data
     do {
-      urlRequest.httpBody = try JSONEncoder().encode(body)
-    } catch {
-      throw AuthError.internalError("Failed to decode auth request body")
-    }
-    
-    let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
-    
-    guard let httpResponse = urlResponse as? HTTPURLResponse else {
-      throw AuthError.unknownNetworkError("Unexpected response")
-    }
-    
-    switch httpResponse.statusCode {
-    case 200..<300:
-      do {
-        self.token = try JSONDecoder().decode(AuthToken.self, from: data)
-      } catch {
-        self.token = nil
-        throw AuthError.badResponseData
+      data = try await httpClient.data(
+        with: Self.authPath,
+        method: "POST",
+        authHeader: VimeoClient.default.basicAuthHeader,
+        headers: [:],
+        body: [
+          "grant_type": "client_credentials",
+          "scope": "public"
+        ]
+      )
+    } catch HTTPClientError.networkError(let statusCode, let errorData) {
+      switch statusCode {
+      case 400:
+        throw AuthError.invalidGrantType
+      case 401:
+        throw AuthError.unauthorized
+      default:
+        throw AuthError.unknownNetworkError(errorData.flatMap { decodeError(from: $0) })
       }
-    case 400:
-      throw AuthError.invalidGrantType
-    case 401:
-      throw AuthError.unauthorized
-    default:
-      throw AuthError.unknownNetworkError(decodeError(from: data))
+    }
+    
+    do {
+      self.token = try JSONDecoder().decode(AuthToken.self, from: data)
+    } catch {
+      throw AuthError.internalError("Unable to parse reponse: \(error.localizedDescription)")
     }
   }
+  
+  // MARK: - Private
+  private static let authPath = "oauth/authorize/client"
   
   private func decodeError(from data: Data) -> String? {
     // TODO: implement better network parsing
     String(data: data, encoding: .utf8)
   }
-  
-  // MARK: - Private
-  private static let authUrl = "https://api.vimeo.com/oauth/authorize/client"
 }
