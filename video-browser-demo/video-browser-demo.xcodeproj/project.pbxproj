@@ -10,9 +10,12 @@
 		2F3119012B1DB8BB009A1F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3119002B1DB8BB009A1F19 /* AppDelegate.swift */; };
 		2F3119032B1DB8BB009A1F19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3119022B1DB8BB009A1F19 /* SceneDelegate.swift */; };
 		2F3119052B1DB8BB009A1F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3119042B1DB8BB009A1F19 /* ViewController.swift */; };
-		2F3119082B1DB8BB009A1F19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F3119062B1DB8BB009A1F19 /* Main.storyboard */; };
-		2F31190A2B1DB8BE009A1F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3119092B1DB8BE009A1F19 /* Assets.xcassets */; };
-		2F31190D2B1DB8BE009A1F19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F31190B2B1DB8BE009A1F19 /* LaunchScreen.storyboard */; };
+		2F3119232B1DBC29009A1F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F31191E2B1DBC29009A1F19 /* Assets.xcassets */; };
+		2F3119242B1DBC29009A1F19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F31191F2B1DBC29009A1F19 /* LaunchScreen.storyboard */; };
+		2F3119252B1DBC29009A1F19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F3119212B1DBC29009A1F19 /* Main.storyboard */; };
+		2F31192A2B1DC0A9009A1F19 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3119292B1DC0A9009A1F19 /* AuthController.swift */; };
+		2F31192E2B1DC0F1009A1F19 /* VimeoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31192D2B1DC0F1009A1F19 /* VimeoClient.swift */; };
+		2F3119302B1DC178009A1F19 /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31192F2B1DC178009A1F19 /* AuthToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +23,13 @@
 		2F3119002B1DB8BB009A1F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3119022B1DB8BB009A1F19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2F3119042B1DB8BB009A1F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2F3119072B1DB8BB009A1F19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2F3119092B1DB8BE009A1F19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2F31190C2B1DB8BE009A1F19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F31190E2B1DB8BE009A1F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F31191E2B1DBC29009A1F19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F3119202B1DBC29009A1F19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2F3119222B1DBC29009A1F19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2F3119292B1DC0A9009A1F19 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		2F31192D2B1DC0F1009A1F19 /* VimeoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoClient.swift; sourceTree = "<group>"; };
+		2F31192F2B1DC178009A1F19 /* AuthToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +66,7 @@
 				2F3119022B1DB8BB009A1F19 /* SceneDelegate.swift */,
 				2F3119042B1DB8BB009A1F19 /* ViewController.swift */,
 				2F3119172B1DB965009A1F19 /* Networking */,
-				2F3119062B1DB8BB009A1F19 /* Main.storyboard */,
-				2F3119092B1DB8BE009A1F19 /* Assets.xcassets */,
-				2F31190B2B1DB8BE009A1F19 /* LaunchScreen.storyboard */,
+				2F31191D2B1DBC29009A1F19 /* Resources */,
 				2F31190E2B1DB8BE009A1F19 /* Info.plist */,
 			);
 			path = "video-browser-demo";
@@ -71,8 +75,29 @@
 		2F3119172B1DB965009A1F19 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				2F3119282B1DC0A9009A1F19 /* Auth */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		2F31191D2B1DBC29009A1F19 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2F31191E2B1DBC29009A1F19 /* Assets.xcassets */,
+				2F31191F2B1DBC29009A1F19 /* LaunchScreen.storyboard */,
+				2F3119212B1DBC29009A1F19 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2F3119282B1DC0A9009A1F19 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				2F3119292B1DC0A9009A1F19 /* AuthController.swift */,
+				2F31192F2B1DC178009A1F19 /* AuthToken.swift */,
+				2F31192D2B1DC0F1009A1F19 /* VimeoClient.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,9 +158,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F31190D2B1DB8BE009A1F19 /* LaunchScreen.storyboard in Resources */,
-				2F31190A2B1DB8BE009A1F19 /* Assets.xcassets in Resources */,
-				2F3119082B1DB8BB009A1F19 /* Main.storyboard in Resources */,
+				2F3119252B1DBC29009A1F19 /* Main.storyboard in Resources */,
+				2F3119232B1DBC29009A1F19 /* Assets.xcassets in Resources */,
+				2F3119242B1DBC29009A1F19 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,28 +172,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F3119052B1DB8BB009A1F19 /* ViewController.swift in Sources */,
+				2F31192A2B1DC0A9009A1F19 /* AuthController.swift in Sources */,
 				2F3119012B1DB8BB009A1F19 /* AppDelegate.swift in Sources */,
+				2F31192E2B1DC0F1009A1F19 /* VimeoClient.swift in Sources */,
 				2F3119032B1DB8BB009A1F19 /* SceneDelegate.swift in Sources */,
+				2F3119302B1DC178009A1F19 /* AuthToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2F3119062B1DB8BB009A1F19 /* Main.storyboard */ = {
+		2F31191F2B1DBC29009A1F19 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2F3119072B1DB8BB009A1F19 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2F31190B2B1DB8BE009A1F19 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F31190C2B1DB8BE009A1F19 /* Base */,
+				2F3119202B1DBC29009A1F19 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2F3119212B1DBC29009A1F19 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F3119222B1DBC29009A1F19 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
