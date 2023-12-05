@@ -15,6 +15,7 @@ enum HTTPClientError: Error {
 protocol HTTPClient {
   func data(
     with path: String,
+    query: [URLQueryItem],
     method: String,
     authHeader: String,
     headers: [String: String],
@@ -31,12 +32,13 @@ class HTTPClientImpl: HTTPClient {
   
   func data(
     with path: String,
+    query: [URLQueryItem],
     method: String,
     authHeader: String,
     headers: [String : String],
     body: Encodable?
   ) async throws -> Data {
-    let url = hostUrl.appending(path: path)
+    let url = hostUrl.appending(path: path).appending(queryItems: query)
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = method
     urlRequest.allHTTPHeaderFields = [

@@ -21,7 +21,6 @@ protocol AuthController {
 
 class AuthControllerImpl: AuthController {
   private(set) var token: AuthToken?
-
   private let httpClient: HTTPClient
   
   init(httpClient: HTTPClient) {
@@ -33,12 +32,13 @@ class AuthControllerImpl: AuthController {
     do {
       data = try await httpClient.data(
         with: Self.authPath,
+        query: [],
         method: "POST",
         authHeader: VimeoClient.default.basicAuthHeader,
         headers: [:],
         body: [
           "grant_type": "client_credentials",
-          "scope": "public"
+          "scope": "public private video_files"
         ]
       )
     } catch HTTPClientError.networkError(let statusCode, let errorData) {

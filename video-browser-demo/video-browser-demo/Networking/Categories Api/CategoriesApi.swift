@@ -13,7 +13,7 @@ enum CategoriesApiError: Error {
 }
 
 protocol CategoriesApi {
-  func getVideosOfCategory(named name: String) async throws -> VideosResponse // implement result
+  func getVideosOfCategory(named name: String) async throws -> [Video]
 }
 
 class CategoriesApiImpl: CategoriesApi {
@@ -28,13 +28,22 @@ class CategoriesApiImpl: CategoriesApi {
     self.authController = authController
   }
   
-  func getVideosOfCategory(named name: String) async throws -> VideosResponse {
+  func getVideosOfCategory(named name: String) async throws -> [Video] {
+    if nil == authController.token {
+      try await authController.authenticate()
+    }
+    
     guard let authToken = authController.token else {
       throw CategoriesApiError.notAuthenticated
     }
     
     let data = try await client.data(
       with: "categories/\(name)/videos",
+      query: [
+        // TODO: implement pagination
+        .init(name: "page", value: "1"),
+        .init(name: "per_page", value: "50")
+      ],
       method: "GET",
       authHeader: authToken.authorizationHeader,
       headers: [:],
@@ -42,9 +51,9 @@ class CategoriesApiImpl: CategoriesApi {
     )
     
     do {
-      return try JSONDecoder().decode(VideosResponse.self, from: data)
+      let response = try JSONDecoder().decode(VideosResponse.self, from: data)
+      return response.data
     } catch {
-      print(error.localizedDescription)
       throw CategoriesApiError.internalError(error.localizedDescription)
     }
   }

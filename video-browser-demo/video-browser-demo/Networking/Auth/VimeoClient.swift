@@ -12,8 +12,8 @@ struct VimeoClient {
   let secret: String
   
   static var `default` = VimeoClient(
-    clientId: "66f98152205688dbd0163d30a40d172b56ca431f",
-    secret: "dfqQPpJ5AIOg7bpk3pK/6HfTQ0PAZMEvVaaWs2IlDnQ9Ud6N3rBoyW0lYiiHduzFhjvJPFbpb244QwkkbVGX/w4QldN+PzWEfDwRDcp3O74hKdWwNEUM64qA4h9EQvSh"
+    clientId: "fd3493db9f8755566c7769f6ef567e27902ddf33",
+    secret: "Avn7qdYd6mzUW4rADzMJgdG0JazTG7hks3QSHqD65KRcqaVWCGnBYmUOMOR2Xf0XB3XuFkF+lh1hPr5n9IEaiFsu1D1RIZr8PkGK00qlzldWs1fQ7NK+0OytUC9zzRzf"
   )
   
   var basicAuthToken: String {
