@@ -26,7 +26,7 @@ class AppRouter {
   
   // Instantiates app initial view controller
   private func createInitialScreen() -> UIViewController {
-    return assembly.createInitialViewController(
+    assembly.createInitialViewController(
       router: { [weak self] route in
         guard let self = self else { return }
         switch route {

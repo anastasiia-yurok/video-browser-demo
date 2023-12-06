@@ -8,14 +8,21 @@
 import Foundation
 
 enum AuthError: Error {
+  // Invalid grant type
   case invalidGrantType
+  // This user cannot be authorized
   case unauthorized
+  // Other response error. Associated value contains payload from network response.
   case unknownNetworkError(String?)
-  case internalError(String)
+  // Unable to parse response json
+  case responseParsingFailure(String)
 }
 
+// Responsible for performing authentication to Vimeo.
 protocol AuthController {
+  // If authenticated returns correspondent auth token
   var token: AuthToken? { get }
+  // Performs authentication
   func authenticate() async throws
 }
 
@@ -55,7 +62,7 @@ class AuthControllerImpl: AuthController {
     do {
       self.token = try JSONDecoder().decode(AuthToken.self, from: data)
     } catch {
-      throw AuthError.internalError("Unable to parse reponse: \(error.localizedDescription)")
+      throw AuthError.responseParsingFailure(error.localizedDescription)
     }
   }
   

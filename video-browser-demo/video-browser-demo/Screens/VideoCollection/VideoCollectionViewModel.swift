@@ -10,7 +10,6 @@ import Foundation
 @MainActor
 protocol VideoCollectionViewModel {
   var navigationTitle: String { get }
-  var highlitedItemIndex: Int? { get }
   func onViewDidLoad()
   func onItemSelected(_ index: Int)
 }
@@ -31,22 +30,13 @@ class VideoCollectionViewModelImpl: VideoCollectionViewModel {
   
   private var videos: [Video] = [] {
     didSet {
-      determineHighlitedItemIndex()
       // transform model objects to view models
       view?.setPreviews(
         videos.map { VideoPreview(name: $0.name, imageUrl: $0.pictures.base_link) }
       )
     }
   }
-  
-  private var highlitedItemUri: String? {
-    didSet {
-      determineHighlitedItemIndex()
-    }
-  }
 
-  private(set) var highlitedItemIndex: Int?
-  
   // MARK: - Init
   init(
     videoApi: CategoriesApi,
@@ -74,7 +64,6 @@ class VideoCollectionViewModelImpl: VideoCollectionViewModel {
     }
     // play video for selected item
     let video = videos[index]
-    highlitedItemUri = video.uri
     router(.playVideo(video))
   }
   
@@ -85,16 +74,8 @@ class VideoCollectionViewModelImpl: VideoCollectionViewModel {
         videos = try await videoApi.getVideosOfCategory(named: categoryName)
       } catch {
         print("Failed to download videos: \(error.localizedDescription)")
+        videos = []
       }
     }
-  }
-  
-  
-  private func determineHighlitedItemIndex() {
-    guard let highlitedItemUri else {
-      highlitedItemIndex = nil
-      return
-    }
-    highlitedItemIndex = videos.firstIndex(where: { $0.uri == highlitedItemUri })
   }
 }

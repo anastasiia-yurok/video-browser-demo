@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Represents response of categories/{category}/videos api
 struct VideosResponse: Codable {
   let data: [Video]
 }

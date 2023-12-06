@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Video info provided by BE
 struct Video: Codable {
   let uri: String
   let link: String

@@ -8,10 +8,13 @@
 import Foundation
 
 enum HTTPClientError: Error {
+  // Network client faced some unexpceted condition and nable to complete request (i.e. input params inconsistency)
   case internalError(String)
+  // Called when responseCode is other than 2xx
   case networkError(Int, Data?)
 }
 
+// Responsible for making https requests
 protocol HTTPClient {
   func data(
     with path: String,

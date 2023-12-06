@@ -34,7 +34,8 @@ class VideoPlayerViewModelImpl: VideoPlayerViewModel {
   // MARK: - VideoPlayerViewModel
   var playUrl: URL? {
     let urlString = video.files?.first(where: { $0.quality == .mobile })?.link ??
-    // Workaround since files are not accessible. Use some mock video link for debug.
+    // Workaround since files are not returned from BE for some reason.
+    // Use some mock video link instead.
     "https://static.pexels.com/lib/videos/free-videos.mp4"
     return .init(string: urlString)
   }
