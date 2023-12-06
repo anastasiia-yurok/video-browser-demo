@@ -70,7 +70,7 @@ Plays the video file with default controls.
 
 **Enjoy your video browsing!**
 
-[//]:
+[//]: # 
 
    [vimeo]: <https://vimeo.com>
    [xcworkspace]: <https://github.com/anastasiia-yurok/video-browser-demo/tree/main/video-browser-demo/video-browser-demo.xcworkspace>
